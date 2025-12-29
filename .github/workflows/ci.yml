@@ -22,7 +22,7 @@ jobs:
           version: 'latest'
       - name: Verify pnpm
         run: pnpm -v
-      - name: Fallback: ensure pnpm is available
+      - name: "Fallback: ensure pnpm is available"
         run: |
           if ! command -v pnpm >/dev/null 2>&1; then
             corepack enable
