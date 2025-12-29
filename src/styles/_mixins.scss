@@ -1,0 +1,18 @@
+@mixin center($dir: row) {
+  display: flex;
+  flex-direction: $dir;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin radius($size: 6px) {
+  border-radius: $size;
+}
+
+@mixin button-reset {
+  cursor: pointer;
+  font: inherit;
+  padding: 0;
+  border: none;
+  background: none;
+}

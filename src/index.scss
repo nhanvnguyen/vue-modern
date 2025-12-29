@@ -1,0 +1,14 @@
+@use "./styles/_variables.scss" as *;
+@use "./styles/_reset.scss";
+@use "./styles/_mixins.scss" as *;
+@use "./styles/_base.scss";
+@use "./styles/_layout.scss";
+@use "./styles/_utilities.scss";
+
+html, body, #app {
+  height: 100%;
+  margin: 0;
+  color: $text-color;
+}
+
+.container { @include center(); }
