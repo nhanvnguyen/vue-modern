@@ -22,6 +22,13 @@ jobs:
           version: 'latest'
       - name: Verify pnpm
         run: pnpm -v
+      - name: Fallback: ensure pnpm is available
+        run: |
+          if ! command -v pnpm >/dev/null 2>&1; then
+            corepack enable
+            corepack prepare pnpm@latest --activate
+          fi
+          pnpm -v
       - name: Install dependencies
         run: pnpm install
       - name: Lint
