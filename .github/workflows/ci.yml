@@ -16,22 +16,9 @@ jobs:
         with:
           node-version: 20
           cache: 'pnpm'
-      - name: Setup pnpm (reliable)
-        uses: pnpm/action-setup@v2
-        with:
-          version: 'latest'
-      - name: Verify pnpm
-        run: pnpm -v
-      - name: "Fallback: ensure pnpm is available"
-        run: |
-          if ! command -v pnpm >/dev/null 2>&1; then
-            corepack enable
-            corepack prepare pnpm@latest --activate
-          fi
-          pnpm -v
       - name: Install dependencies
-        run: pnpm install
+        run: npm install
       - name: Lint
-        run: pnpm lint
+        run: npm run lint
       - name: Build
-        run: pnpm build
+        run: npm run build
