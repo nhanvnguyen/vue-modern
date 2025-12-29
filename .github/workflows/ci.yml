@@ -16,8 +16,12 @@ jobs:
         with:
           node-version: 20
           cache: 'pnpm'
-      - name: Install pnpm
-        run: corepack enable && corepack prepare pnpm@latest --activate
+      - name: Setup pnpm (reliable)
+        uses: pnpm/action-setup@v2
+        with:
+          version: 'latest'
+      - name: Verify pnpm
+        run: pnpm -v
       - name: Install dependencies
         run: pnpm install
       - name: Lint
